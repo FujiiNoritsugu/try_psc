@@ -15,6 +15,14 @@ ENV PYTHONUNBUFFERED=1 \
     PYTHONIOENCODING="UTF-8"
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY --from=builder /usr/local/bin/streamlit /usr/local/bin/
+
+# 必要なパッケージのインストール
+RUN apt-get update && apt-get install -y \
+    mecab \
+    libmecab-dev \
+    mecab-ipadic-utf8 \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 COPY . /app/
 CMD ["streamlit", "run", "home.py", "--server.port", "8080"]
