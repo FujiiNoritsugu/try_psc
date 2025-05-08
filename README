@@ -1,0 +1,6 @@
+gcloud compute networks vpc-access connectors create try-connector --network try-vpc --region asia-northeast1 --range 10.8.0.0/28
+gcloud network-connectivity service-connection-policies create try-policy \
+--project=gen-lang-client-0471694923 --network=projects/1010478563120/global/networks/try-vpc \
+--service-class=gcp-vertexai --region=asia-northeast1 --subnets=try-subnet
+gcloud run deploy my-app --region "asia-northeast1" --source . --vpc-connector=
+
