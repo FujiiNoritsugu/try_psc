@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "vector-search-api"
+version = "0.1.0"
+description = "FastAPI application for Vector Search"
+authors = ["Devin AI <devin-ai-integration[bot]@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.110.0"
+uvicorn = "^0.27.1"
+google-cloud-aiplatform = "^1.38.1"
+vertexai = "^0.0.1"
+pydantic = "^2.6.3"
+python-dotenv = "^1.0.1"
+numpy = "^1.26.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+black = "^23.7.0"
+isort = "^5.12.0"
+flake8 = "^6.1.0"
+pip-audit = "^2.6.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
